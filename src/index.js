@@ -23,18 +23,29 @@ const resolvers = {
       return link
     },
     updateLink: (root, args) => {
-       const link = {
-        id: args.id,
-        description: args.description,
-        url: args.url,
+      let link = {}
+      let links_len = links.length
+      for (let i = 0; i < links_len; i++){
+      	if (links[i].id === args.id){
+      		link = {
+	          id: args.id,
+	          description: args.description,
+	          url: args.url,
+	        }
+      		links[i] = link
+      	}
       }
       return link
     },
     deleteLink: (root, args) => {
-       const link = root
-       console.log(root)
-      if (root.id != args.id)
-      	links.push(link)
+      let link = {}
+      let links_len = links.length
+      for (let i = 0; i < links_len; i++){
+      	if (links[i].id === args.id){
+      		link = links[i]
+      		links.splice(i, 1)
+      	}
+      }
       return link
     },
   },
