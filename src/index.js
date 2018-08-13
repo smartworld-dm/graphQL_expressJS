@@ -24,8 +24,7 @@ const resolvers = {
     },
     updateLink: (root, args) => {
       let link = {}
-      let links_len = links.length
-      for (let i = 0; i < links_len; i++){
+      for (let i = 0; i < links.length; i++){
       	if (links[i].id === args.id){
       		link = {
 	          id: args.id,
